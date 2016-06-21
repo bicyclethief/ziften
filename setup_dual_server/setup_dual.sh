@@ -10,6 +10,9 @@ source /usr/local/rvm/scripts/rvm
 # install sshfs
 yes | yum install sshfs
 
+# install unzip
+yes | yum install unzip
+
 # mount historical csvs
 CSV_DIR=/csv
 mkdir -p $CSV_DIR
