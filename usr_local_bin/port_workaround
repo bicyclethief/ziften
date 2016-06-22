@@ -1,0 +1,9 @@
+
+yes | cp ./features/REST/step_definitions/common_steps.rb.copy ./features/REST/step_definitions/common_steps.rb
+yes | cp ./config/cucumber.yml.copy ./config/cucumber.yml
+yes | cp ./config/dataset.yml.copy ./config/dataset.yml
+yes | cp ./features/support/hooks.rb.copy ./features/support/hooks.rb
+yes | cp ./Rakefile.copy ./Rakefile
+yes | cp ./features/REST/step_definitions/reports_steps.rb.copy ./features/REST/step_definitions/reports_steps.rb
+yes | cp ./lib/rest_helper.rb.copy ./lib/rest_helper.rb
+yes | cp ./lib/ziften/ziften_server.rb.copy ./lib/ziften/ziften_server.rb

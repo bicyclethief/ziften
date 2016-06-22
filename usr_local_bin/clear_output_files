@@ -1,0 +1,5 @@
+
+rm -rf ~/Desktop/qa-server/Ziften/output/Data-Quality
+
+rm -f ~/Desktop/qa-server/Ziften/output/*.html
+rm -f ~/Desktop/qa-server/Ziften/output/*.csv

@@ -1,0 +1,1 @@
+ssh -i ~/certs/qa.pem root@$1 -L 5435:127.0.0.1:5432

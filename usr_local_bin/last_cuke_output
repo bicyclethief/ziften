@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+last_cuke_file=`ls -altr /Users/vinhbui/Desktop/qa-server/Ziften/output/*.html | tail -1 | rev | cut -d ' ' -f1 | rev`
+
+open $last_cuke_file

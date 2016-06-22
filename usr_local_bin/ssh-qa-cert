@@ -1,0 +1,2 @@
+
+ssh -i ~/certs/qa.pem root@$1
