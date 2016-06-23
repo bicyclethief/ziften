@@ -8,6 +8,9 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 source /usr/local/rvm/scripts/rvm
 echo source /usr/local/rvm/scripts/rvm >> /root/.bash_profile
 
+# install byebug gem
+gem install byebug
+
 # install sshfs
 yes | yum install sshfs
 
