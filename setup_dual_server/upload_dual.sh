@@ -11,3 +11,13 @@ scp -i ~/certs/qa.pem setup_dual.sh root@$1:/root/
 # add execute permission to script
 ssh -i ~/certs/qa.pem root@$1 'chmod u+x /root/setup_dual.sh'
 
+# create vertica_importer zip
+zip -j -r vertica_importer.zip /Users/vinhbui/Desktop/ziftendev/ziftenqa/tools/vertica_importer
+
+# upload vertica_importer.zip
+scp -i ~/certs/qa.pem vertica_importer.zip root@$1:/root/
+
+# unzip remote vertica_importer.zip
+ssh -i ~/certs/qa.pem root@$1 'unzip /root/vertica_importer.zip -d /root/vertica_importer'
+
+
