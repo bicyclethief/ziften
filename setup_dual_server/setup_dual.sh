@@ -17,6 +17,9 @@ yes | yum install sshfs
 # install unzip
 yes | yum install unzip
 
+# unzip vertica_importer project
+unzip /root/vertica_importer.zip -d /root/
+
 # mount historical csvs
 CSV_DIR=/csv
 mkdir -p $CSV_DIR

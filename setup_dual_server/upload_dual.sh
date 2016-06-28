@@ -21,8 +21,3 @@ cd $SRC
 
 # upload vertica_importer.zip
 scp -i ~/certs/qa.pem vertica_importer.zip root@$1:/root/
-
-# unzip remote vertica_importer.zip
-ssh -i ~/certs/qa.pem root@$1 'unzip /root/vertica_importer.zip -d /root/'
-
-
