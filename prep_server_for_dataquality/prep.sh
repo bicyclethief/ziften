@@ -28,7 +28,7 @@ ssh -i ~/.ssh/qa.pem root@$VERTICA_SERVER 'chown :ziften /opt/ziften/tmp'
 
 # download zlabmq.settings file from ziften server
 scp -i ~/.ssh/qa.pem root@$ZIFTEN_SERVER:/opt/ziften/zlabmq.settings .
-#
+
 # upload zlabmq.settings file from ziften server
 scp -i ~/.ssh/qa.pem zlabmq.settings root@$VERTICA_SERVER:/opt/ziften/
 
