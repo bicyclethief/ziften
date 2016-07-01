@@ -1,2 +1,2 @@
 
-ssh -i ~/certs/qa.pem root@$1
+ssh -i ~/.ssh/qa.pem root@$1
