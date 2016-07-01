@@ -1,1 +1,1 @@
-ssh -i ~/certs/qa.pem root@$1 'grep MCZIFTENPASSWORD= /opt/ziften/zlabmq.settings' | awk -F= '{print $2}' | pbcopy
+ssh -i ~/.ssh/qa.pem root@$1 'grep MCZIFTENPASSWORD= /opt/ziften/zlabmq.settings' | awk -F= '{print $2}' | pbcopy
