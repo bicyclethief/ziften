@@ -1,1 +1,2 @@
 ssh -i ~/.ssh/qa.pem root@$1 'grep DATABASE_PASSWORD /opt/ziften/zlabmq.settings' | awk -F= '{print $2}' | pbcopy
+ssh -i ~/.ssh/qa.pem root@$1 'grep DATABASE_PASSWORD /opt/ziften/zlabmq.settings' | awk -F= '{print $2}'
