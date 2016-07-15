@@ -1,15 +1,17 @@
 
+SSL_CERT_PATH=~/.ssh/qa.pem
+
 # create .ssh dir
-ssh -i ~/certs/qa.pem root@$1 'mkdir -p /root/.ssh'
+ssh -i $SSL_CERT_PATH root@$1 'mkdir -p /root/.ssh'
 
 # upload pem
-scp -i ~/certs/qa.pem ~/certs/qa.pem root@$1:/root/.ssh/
+scp -i $SSL_CERT_PATH ~/.ssh/qa.pem root@$1:/root/.ssh/
 
 # upload setup script
-scp -i ~/certs/qa.pem setup_dual.sh root@$1:/root/
+scp -i $SSL_CERT_PATH setup_dual.sh root@$1:/root/
 
 # add execute permission to script
-ssh -i ~/certs/qa.pem root@$1 'chmod u+x /root/setup_dual.sh'
+ssh -i $SSL_CERT_PATH root@$1 'chmod u+x /root/setup_dual.sh'
 
 # create vertica_importer zip
 SRC="/Users/vinhbui/Desktop/ziften/setup_dual_server"
@@ -20,4 +22,4 @@ mv $DIR/vertica_importer.zip $SRC
 cd $SRC
 
 # upload vertica_importer.zip
-scp -i ~/certs/qa.pem vertica_importer.zip root@$1:/root/
+scp -i $SSL_CERT_PATH vertica_importer.zip root@$1:/root/
