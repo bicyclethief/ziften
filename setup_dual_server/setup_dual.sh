@@ -1,12 +1,19 @@
 
-ZIFTEN_SERVER="ec2-52-90-34-128.compute-1.amazonaws.com"
+ZIFTEN_SERVER="ec2-54-175-61-51.compute-1.amazonaws.com"
 POSTGRES_SERVER=calpineui.cloud.ziften.com
 
 # install ruby (via rvm)
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
-source /usr/local/rvm/scripts/rvm
-echo source /usr/local/rvm/scripts/rvm >> /root/.bash_profile
+#gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+#\curl -sSL https://get.rvm.io | bash -s stable --ruby
+#source /usr/local/rvm/scripts/rvm
+#echo source /usr/local/rvm/scripts/rvm >> /root/.bash_profile
+
+cd /tmp
+wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.gz
+cd ruby-2.3.1
+./configure
+make
+make install
 
 # install byebug gem
 gem install byebug
