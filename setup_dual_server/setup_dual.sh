@@ -8,8 +8,15 @@ POSTGRES_SERVER=calpineui.cloud.ziften.com
 #source /usr/local/rvm/scripts/rvm
 #echo source /usr/local/rvm/scripts/rvm >> /root/.bash_profile
 
+# install libs need to compile ruby
+yum -y install gcc-c++ patch readline readline-devel zlib zlib-devel
+yum -y install libyaml-devel libffi-devel openssl-devel make
+yum -y install bzip2 autoconf automake libtool bison iconv-devel sqlite-devel
+
+# install ruby from src
 cd /tmp
 wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.gz
+tar xvf ruby-2.3.1.tar.gz
 cd ruby-2.3.1
 ./configure
 make
