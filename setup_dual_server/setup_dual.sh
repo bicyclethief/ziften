@@ -1,6 +1,6 @@
 
 ZIFTEN_SERVER="ec2-54-175-61-51.compute-1.amazonaws.com"
-POSTGRES_SERVER=calpineui.cloud.ziften.com
+POSTGRES_SERVER=coca-colaui-agent.cloud.ziften.com
 
 # install ruby (via rvm)
 #gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
@@ -27,6 +27,13 @@ gem install byebug
 
 # install sshfs
 yes | yum install sshfs
+
+# install sshfs if epel repo not available
+# cd /tmp
+# wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+# yum -y install epel-release
+# yum -y install epel-release-latest-7.noarch.rpm
+# yum install --enablerepo="epel" sshfs
 
 # install unzip
 yes | yum install unzip
