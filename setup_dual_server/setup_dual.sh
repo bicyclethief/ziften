@@ -1,7 +1,7 @@
 
 ZIFTEN_SERVER="ec2-54-175-61-51.compute-1.amazonaws.com"
 POSTGRES_SERVER=coca-colaui-agent.cloud.ziften.com
-SCHEMA=ziften_tenant
+CUSTOMER=ziften_tenant
 
 # install ruby (via rvm)
 #gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
@@ -27,7 +27,8 @@ make install
 gem install byebug
 
 # install sshfs
-yes | yum install sshfs
+# yes | yum install sshfs
+rpm -Uvh ftp://rpmfind.net/linux/dag/redhat/el7/en/x86_64/dag/RPMS/fuse-sshfs-2.5-1.el7.rf.x86_64.rpm
 
 # install sshfs if epel repo not available
 # cd /tmp
@@ -43,19 +44,14 @@ yes | yum install unzip
 unzip /root/vertica_importer.zip -d /root/
 
 # mount historical csvs
-CSV_DIR=/${SCHEMA}_csv
+CSV_DIR=/${CUSTOMER}_csv
 mkdir -p $CSV_DIR
-yes | sshfs -o "IdentityFile=/root/.ssh/qa.pem" -o nonempty root@$POSTGRES_SERVER:/var/lib/pgsql/archive $CSV_DIR
-
-# mount bsqls
-BSQL_DIR=/${SCHEMA}_bsql
-mkdir -p $BSQL_DIR
-yes | sshfs -o "IdentityFile=/root/.ssh/qa.pem" -o nonempty root@$POSTGRES_SERVER:/opt/ziften/bsql/archive/success $BSQL_DIR
+yes | sshfs -o "IdentityFile=/root/.ssh/qa.pem" -o allow_other -o nonempty root@$POSTGRES_SERVER:/var/lib/pgsql/archive $CSV_DIR
 
 # mount userdata
-USERDATA_DIR=/${SCHEMA}_userdata
+USERDATA_DIR=/${CUSTOMER}_userdata
 mkdir -p $USERDATA_DIR
-yes | sshfs -o "IdentityFile=/root/.ssh/qa.pem" -o nonempty root@$POSTGRES_SERVER:/var/lib/pgsql/upgrade $USERDATA_DIR
+yes | sshfs -o "IdentityFile=/root/.ssh/qa.pem" -o allow_other -o nonempty root@$POSTGRES_SERVER:/var/lib/pgsql/upgrade $USERDATA_DIR
 
 # mount Ziften server /resources
 RESOURCES_DIR=/opt/ziften/resources
